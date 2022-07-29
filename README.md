@@ -1,5 +1,3 @@
-# WPF-Password-Generator
-
 ## About WPF-Password-Generator
 
 Generate Secure Passwords.
