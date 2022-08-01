@@ -10,64 +10,23 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using WPF_Password_Generator.Models;
+
 namespace WPF_Password_Generator.ViewModels
 {
-    public class IndexViewModel : INotifyPropertyChanged
+    public class IndexViewModel : ObservableObject
     {
-       Models.Index index = new Models.Index();
-        public string TextContent
+        public IndexViewModel()
         {
-            get
-            {
-                return index.textContent;
-            }
-            set
-            {
-                index.textContent = value;
-                OnPropertyChanged("TextContent");
-            }
+            IndexModel = new Models.Index();
+            GenerateCommand = new RelayCommand(OnGenerateCommand);
         }
+        public Models.Index IndexModel { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public ICommand GenerateCommand { get; set; }
 
-        private ICommand generateCommand;
-        public ICommand GenerateCommand
+        private void OnGenerateCommand()
         {
-            get
-            {
-                if (generateCommand == null)
-                {
-                    generateCommand = new Generate();
-                    return generateCommand;
-                }
-                else
-                {
-                    return generateCommand;
-                }
-            }
-        }
-     
-    }
-   public class Generate: ICommand
-    {
-        IndexViewModel indexViewModel = new IndexViewModel();
-        public void Execute(object parameter)
-        {
-            indexViewModel.TextContent = "asdasdadasd";
-            MessageBox.Show(indexViewModel.TextContent);
-        }
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
+            IndexModel.TextContent = "asdasdadasd";
         }
     }
 }

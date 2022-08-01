@@ -34,7 +34,7 @@
                HorizontalAlignment="Stretch"
                VerticalAlignment="Center"
                Margin="10"
-               Text="{Binding TextContent, UpdateSourceTrigger=PropertyChanged}"
+               Text="{Binding IndexModel.TextContent, UpdateSourceTrigger=PropertyChanged}"
  
         />
         <Button Grid.Row="0" 

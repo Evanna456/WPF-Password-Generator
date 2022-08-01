@@ -23,9 +23,8 @@ namespace WPF_Password_Generator.Views
     {
         public Index()
         {
-            IndexViewModel indexViewModel = new IndexViewModel();
             InitializeComponent();
-            this.DataContext = indexViewModel;
+            DataContext = new IndexViewModel();
         }
     }
 }
