@@ -2,7 +2,7 @@
 
 Generate Secure Passwords.
 
-> Under Construction.
+> Under Development.
 
 ## Usage
 
